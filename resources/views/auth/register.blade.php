@@ -39,9 +39,35 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
+        <!-- Jabatan -->
+        <div class="mt-4">
+            <x-input-label for="jabatan" :value="__('Jabatan')" />
+
+            <select id="jabatan" name="jabatan" class="block mt-1 w-full" required onchange="showBranchInput()">
+                <option value="sekretaris">Sekretaris</option>
+                <option value="kepala_cabang">Kepala Cabang</option>
+            </select>
+
+            <x-input-error :messages="$errors->get('jabatan')" class="mt-2" />
+        </div>
+
+        <!-- Cabang -->
+        <div class="mt-4" id="branch-container" style="display: none;">
+            <x-input-label for="cabang" :value="__('Cabang')" />
+
+            <select id="cabang" name="cabang" class="block mt-1 w-full">
+                <option value="cabang1">Magetan</option>
+                <option value="cabang2">Ponorogo</option>
+                <option value="cabang3">Madiun</option>
+                <!-- Tambahkan opsi cabang lainnya sesuai kebutuhan -->
+            </select>
+
+            <x-input-error :messages="$errors->get('cabang')" class="mt-2" />
+        </div>
+
         <div class="flex items-center justify-end mt-4">
             <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
-                {{ __('Already registered?') }}
+                {{ __('Sudah punya akun?') }}
             </a>
 
             <x-primary-button class="ms-4">
@@ -50,3 +76,4 @@
         </div>
     </form>
 </x-guest-layout>
+
